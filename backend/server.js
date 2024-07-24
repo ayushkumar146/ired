@@ -11,11 +11,11 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://inventory-app-3i8q.onrender.com'],// Allow all origins
+    origin: 'https://ired-1.onrender.com', // Allow all origins
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
-}));
+  }));
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 
 // Routes Middleware
@@ -42,7 +42,7 @@ mongoose
    .connect(process.env.MONGO_URI)
    .then(() => {
         app.listen(PORT, () => {
-            console.log(`Server Running on Port ${PORT}`); 
+            console.log(`Server Running on Port ${PORT}`);  
         })
     })
    .catch((err) => console.log(err))   
