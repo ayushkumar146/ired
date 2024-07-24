@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: 'https://ired-1.onrender.com', // Allow all origins
+    origin: ['https://ired-1.onrender.com','http://localhost:3000'], // Allow all origins
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
 });
 
 // Error Middleware
-const errorHandler = require("./middleWare/errorMiddleware");
+const errorHandler = require("./middleWare/errorMiddleware"); 
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
